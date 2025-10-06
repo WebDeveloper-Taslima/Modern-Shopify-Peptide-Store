@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PurePeptides - Premium Research Compounds</title>
+    <meta name="description" content="Premium research peptides with purity guaranteed. Shop our collection of high-quality peptides for scientific research.">
+    <meta name="keywords" content="peptides, research compounds, premium peptides, scientific research, buy peptides">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --secondary: #f97316;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background-color: #ffffff;
+        }
+        
+        /* Custom Styles */
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .filter-tag {
+            transition: all 0.2s ease;
+        }
+        
+        .filter-tag:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .filter-tag.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Navigation */
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+        }
+        
+        /* SEO Structured Data */
+        .structured-data {
+            display: none;
+        }
+        
+        /* Image Hover Effects */
+        .image-hover {
+            overflow: hidden;
+        }
+        
+        .image-hover img {
+            transition: transform 0.5s ease;
+        }
+        
+        .image-hover:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Parallax Effect */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "PurePeptides",
+        "url": "https://purepeptides.com",
+        "logo": "https://purepeptides.com/logo.png",
+        "description": "Premium research peptides with purity guaranteed",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Research Street",
+            "addressLocality": "Science City",
+            "addressRegion": "CA",
+            "postalCode": "94000",
+            "addressCountry": "US"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-800-123-4567",
+            "contactType": "Customer Service"
+        }
+    }
+    </script>
+
+    <!-- Navigation -->
+    <nav class="navbar sticky top-0 z-50 bg-white">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-gray-800">Pure<span class="text-blue-500">Peptides</span></a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-blue-500 font-medium">Shop</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500 font-medium">Research</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500 font-medium">Quality</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500 font-medium">About</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500 font-medium">Blog</a>
+                </div>
+                
+                <!-- Icons -->
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-blue-500">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500 relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">2</span>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="md:hidden text-gray-600">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 w-64 h-full bg-white z-50 shadow-lg md:hidden">
+            <div class="p-4">
+                <div class="flex justify-between items-center mb-8">
+                    <a href="#" class="text-2xl font-bold text-gray-800">Pure<span class="text-blue-500">Peptides</span></a>
+                    <button id="close-menu" class="text-gray-600">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-4">
+                    <a href="#" class="text-gray-600 hover:text-blue-500 font-medium">Shop</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500 font-medium">Research</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500 font-medium">Quality</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500 font-medium">About</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500 font-medium">Blog</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 md:py-32 overflow-hidden">
+        <!-- Hero Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzi9BoEnBRRbheiQ2BywWnacI11mgZeK6p2rGhjf6sXbLyiVcvaIio2_jsdgpT-6q--NU&usqp=CAU" alt="Laboratory Research" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 opacity-85"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Premium Research Peptides</h1>
+                <p class="text-xl md:text-2xl text-blue-100 mb-10">Scientific-grade peptides with guaranteed purity. Trusted by researchers worldwide.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#products" class="btn-primary px-8 py-4 rounded-lg font-medium text-lg">Shop Peptides</a>
+                    <a href="#" class="px-8 py-4 rounded-lg font-medium border-2 border-white text-white hover:bg-white hover:text-blue-900 text-lg">Learn More</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 right-10 w-64 h-64 rounded-full bg-blue-500 opacity-10 blur-3xl"></div>
+        <div class="absolute bottom-10 left-10 w-96 h-96 rounded-full bg-indigo-500 opacity-10 blur-3xl"></div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="text-center">
+                    <div class="image-hover mb-6">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Lab Testing" class="w-full h-64 object-cover rounded-xl shadow-lg mx-auto">
+                    </div>
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-flask text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Lab Tested Purity</h3>
+                    <p class="text-gray-600">Every batch is third-party tested for purity and consistency.</p>
+                </div>
+                <div class="text-center">
+                    <div class="image-hover mb-6">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXJjhEl_Qfl3n2J28nIfMGYJO7VzA7PaT0uw&s" alt="Fast Shipping" class="w-full h-64 object-cover rounded-xl shadow-lg mx-auto">
+                    </div>
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shipping-fast text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Fast Shipping</h3>
+                    <p class="text-gray-600">Discreet packaging and fast delivery to your doorstep.</p>
+                </div>
+                <div class="text-center">
+                    <div class="image-hover mb-6">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzmMtBY8EXA4GXqZxOeqaeqAs9SIRIgrX-sQ&s" alt="Expert Support" class="w-full h-64 object-cover rounded-xl shadow-lg mx-auto">
+                    </div>
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Expert Support</h3>
+                    <p class="text-gray-600">Our team of scientists is ready to assist with your research.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Our Peptide Collection</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore our range of high-quality research peptides, all manufactured to the highest standards.</p>
+            </div>
+            
+            <!-- Filters -->
+            <div class="mb-10">
+                <div class="flex flex-wrap gap-2 justify-center">
+                    <button class="filter-tag px-4 py-2 rounded-full border border-gray-300 text-sm font-medium active">All Products</button>
+                    <button class="filter-tag px-4 py-2 rounded-full border border-gray-300 text-sm font-medium">Muscle Growth</button>
+                    <button class="filter-tag px-4 py-2 rounded-full border border-gray-300 text-sm font-medium">Fat Loss</button>
+                    <button class="filter-tag px-4 py-2 rounded-full border border-gray-300 text-sm font-medium">Anti-Aging</button>
+                    <button class="filter-tag px-4 py-2 rounded-full border border-gray-300 text-sm font-medium">Recovery</button>
+                    <button class="filter-tag px-4 py-2 rounded-full border border-gray-300 text-sm font-medium">Cognitive</button>
+                </div>
+            </div>
+            
+            <!-- Product Grid -->
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Peptide Product" class="w-full h-64 object-cover">
+                        <span class="absolute top-4 right-4 bg-blue-500 text-white text-xs px-2 py-1 rounded">Best Seller</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold mb-2">CJC-1295 DAC</h3>
+                        <p class="text-gray-600 text-sm mb-4">Growth hormone releasing peptide with extended half-life.</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-bold">$89.99</span>
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star-half-alt text-sm"></i>
+                                <span class="text-gray-500 text-sm ml-1">(24)</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary w-full py-2 rounded-lg">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Peptide Product" class="w-full h-64 object-cover">
+                        <span class="absolute top-4 right-4 bg-green-500 text-white text-xs px-2 py-1 rounded">New</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold mb-2">Ipamorelin</h3>
+                        <p class="text-gray-600 text-sm mb-4">Selective growth hormone secretagogue with minimal side effects.</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-bold">$74.99</span>
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="far fa-star text-sm"></i>
+                                <span class="text-gray-500 text-sm ml-1">(18)</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary w-full py-2 rounded-lg">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Peptide Product" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold mb-2">BPC-157</h3>
+                        <p class="text-gray-600 text-sm mb-4">Body protection compound for enhanced healing and recovery.</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-bold">$64.99</span>
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <span class="text-gray-500 text-sm ml-1">(31)</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary w-full py-2 rounded-lg">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Peptide Product" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold mb-2">MK-677 (Ibutamoren)</h3>
+                        <p class="text-gray-600 text-sm mb-4">Growth hormone secretagogue that increases GH and IGF-1 levels.</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-bold">$94.99</span>
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star-half-alt text-sm"></i>
+                                <span class="text-gray-500 text-sm ml-1">(27)</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary w-full py-2 rounded-lg">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Peptide Product" class="w-full h-64 object-cover">
+                        <span class="absolute top-4 right-4 bg-orange-500 text-white text-xs px-2 py-1 rounded">Sale</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold mb-2">Tesamorelin</h3>
+                        <p class="text-gray-600 text-sm mb-4">Growth hormone-releasing hormone analog for fat reduction.</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="text-lg font-bold">$84.99</span>
+                                <span class="text-gray-500 text-sm line-through ml-2">$104.99</span>
+                            </div>
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="far fa-star text-sm"></i>
+                                <span class="text-gray-500 text-sm ml-1">(15)</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary w-full py-2 rounded-lg">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Peptide Product" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold mb-2">Semaglutide</h3>
+                        <p class="text-gray-600 text-sm mb-4">GLP-1 receptor agonist for metabolic research.</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-bold">$124.99</span>
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <span class="text-gray-500 text-sm ml-1">(42)</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary w-full py-2 rounded-lg">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="btn-primary px-8 py-3 rounded-lg font-medium">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section with Image -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="image-hover">
+                        <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Research Laboratory" class="rounded-xl shadow-xl w-full">
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">Advancing Scientific Research</h2>
+                    <p class="text-gray-600 mb-6">Our peptides are used in cutting-edge research studies around the world. We work with leading scientists to develop compounds that push the boundaries of what's possible in medical research.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>99%+ purity guaranteed with every batch</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Manufactured in state-of-the-art facilities</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Comprehensive third-party testing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Stable compounds with long shelf life</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn-primary px-6 py-3 rounded-lg font-medium">Research Papers</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">What Researchers Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Trusted by scientists and research institutions worldwide.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <img src="https://media.istockphoto.com/id/1830126474/photo/portrait-of-a-business-man-sitting-in-an-office.jpg?s=612x612&w=0&k=20&c=jFJl6x5NUZOXEH230n2asejE-vDZ0YtATM0pbfJFTgk=" alt="Customer" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Dr. Sarah Johnson</h4>
+                            <p class="text-gray-600 text-sm">Research Scientist</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"The purity and consistency of PurePeptides' products have been essential for our research. Highly recommended."</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Customer" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Michael Chen</h4>
+                            <p class="text-gray-600 text-sm">Lab Director</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Fast shipping and excellent customer service. The quality is unmatched in the market."</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Customer" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Emily Rodriguez</h4>
+                            <p class="text-gray-600 text-sm">PhD Candidate</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"As a graduate student, I rely on PurePeptides for my research. Their products have never disappointed."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section with Background Image -->
+    <section class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Laboratory" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 opacity-90"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-4xl font-bold text-white mb-6">Ready to Advance Your Research?</h2>
+                <p class="text-xl text-blue-100 mb-10">Join thousands of researchers who trust PurePeptides for their scientific studies.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-medium hover:bg-gray-100 text-lg">Shop Now</a>
+                    <a href="#" class="border-2 border-white text-white px-8 py-4 rounded-lg font-medium hover:bg-white hover:bg-opacity-10 text-lg">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Pure<span class="text-blue-400">Peptides</span></h3>
+                    <p class="text-gray-400 mb-6">Premium research peptides with guaranteed purity for scientific studies.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">All Peptides</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Muscle Growth</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Fat Loss</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Anti-Aging</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Information</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Quality Guarantee</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>123 Research Street</li>
+                        <li>Science City, CA 94000</li>
+                        <li>info@purepeptides.com</li>
+                        <li>+1 (800) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 PurePeptides || Developed By WebDevTaslima || All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+        
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Filter Tags
+        const filterTags = document.querySelectorAll('.filter-tag');
+        
+        filterTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                // Remove active class from all tags
+                filterTags.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tag
+                tag.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
